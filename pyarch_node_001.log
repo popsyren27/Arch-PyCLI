@@ -1,0 +1,990 @@
+2026-03-20 00:58:50,805 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 00:58:50,808 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 00:58:50,808 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 00:58:50,808 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 00:58:50,809 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 00:58:52,815 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59492): system.info
+2026-03-20 00:58:52,815 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 00:59:44,573 - PyArch-node_001 - [INFO] - Boot sequence cancelled.
+2026-03-20 00:59:44,573 - PyArch-node_001 - [INFO] - Py-Arch Node Agent shutting down...
+2026-03-20 00:59:44,573 - PyArch-node_001 - [INFO] - Shutting down process and thread pools...
+2026-03-20 00:59:44,574 - PyArch-node_001 - [INFO] - All subsystems halted.
+2026-03-20 00:59:44,574 - PyArch-node_001 - [INFO] - Py-Arch Node Agent shutting down...
+2026-03-20 00:59:44,574 - PyArch-node_001 - [INFO] - Shutting down process and thread pools...
+2026-03-20 00:59:44,574 - PyArch-node_001 - [INFO] - All subsystems halted.
+2026-03-20 01:01:11,990 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 01:01:11,992 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:01:11,992 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:01:11,992 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:01:11,993 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:01:14,001 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59501): system.info
+2026-03-20 01:01:14,001 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:01:47,198 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59511): system.info
+2026-03-20 01:01:47,199 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:01:47,201 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59514): system.echo
+2026-03-20 01:01:47,201 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:02:00,062 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59520): system.info
+2026-03-20 01:02:00,063 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:02:00,077 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59523): system.echo
+2026-03-20 01:02:00,077 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:03:40,661 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59544): system.echo
+2026-03-20 01:03:40,661 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: inva...
+2026-03-20 01:03:40,674 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59545): system.info
+2026-03-20 01:03:40,675 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:03:40,689 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59546): system.echo
+2026-03-20 01:03:40,689 - PyArch-node_001 - [ERROR] - Malformed payload: missing required key 'text'
+2026-03-20 01:03:40,703 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59547): kernel.panic
+2026-03-20 01:03:40,704 - PyArch-node_001 - [WARNING] - Rejected unknown command: kernel.panic
+2026-03-20 01:05:00,549 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59561): system.info
+2026-03-20 01:05:00,550 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:05:00,556 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59562): system.echo
+2026-03-20 01:05:00,556 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,560 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59563): system.echo
+2026-03-20 01:05:00,560 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,580 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59564): system.echo
+2026-03-20 01:05:00,580 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,581 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59565): system.echo
+2026-03-20 01:05:00,581 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,581 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59566): system.echo
+2026-03-20 01:05:00,582 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,582 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59567): system.echo
+2026-03-20 01:05:00,582 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,582 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59568): system.echo
+2026-03-20 01:05:00,582 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,583 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59569): system.echo
+2026-03-20 01:05:00,583 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,583 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59570): system.echo
+2026-03-20 01:05:00,583 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,583 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59571): system.echo
+2026-03-20 01:05:00,584 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,584 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59572): system.echo
+2026-03-20 01:05:00,584 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,584 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59573): system.echo
+2026-03-20 01:05:00,585 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,585 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59574): system.echo
+2026-03-20 01:05:00,585 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,586 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59575): system.echo
+2026-03-20 01:05:00,586 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,586 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59576): system.echo
+2026-03-20 01:05:00,586 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,587 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59577): system.echo
+2026-03-20 01:05:00,587 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,587 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59578): system.echo
+2026-03-20 01:05:00,588 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,588 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59579): system.echo
+2026-03-20 01:05:00,588 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,589 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59580): system.echo
+2026-03-20 01:05:00,589 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,589 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59581): system.echo
+2026-03-20 01:05:00,589 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,589 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59582): system.echo
+2026-03-20 01:05:00,590 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,590 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59583): system.echo
+2026-03-20 01:05:00,590 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,590 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59584): system.echo
+2026-03-20 01:05:00,591 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,591 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59585): system.echo
+2026-03-20 01:05:00,591 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,591 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59586): system.echo
+2026-03-20 01:05:00,592 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,592 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59587): system.echo
+2026-03-20 01:05:00,592 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,592 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59588): system.echo
+2026-03-20 01:05:00,592 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,593 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59589): system.echo
+2026-03-20 01:05:00,593 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,593 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59590): system.echo
+2026-03-20 01:05:00,593 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,594 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59591): system.echo
+2026-03-20 01:05:00,594 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,594 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59592): system.echo
+2026-03-20 01:05:00,594 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,594 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59593): system.echo
+2026-03-20 01:05:00,595 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,595 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59594): system.echo
+2026-03-20 01:05:00,595 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,595 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59595): system.echo
+2026-03-20 01:05:00,595 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,596 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59596): system.echo
+2026-03-20 01:05:00,596 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,596 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59597): system.echo
+2026-03-20 01:05:00,596 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,597 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59598): system.echo
+2026-03-20 01:05:00,597 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,597 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59599): system.echo
+2026-03-20 01:05:00,598 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,598 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59600): system.echo
+2026-03-20 01:05:00,598 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,598 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59601): system.echo
+2026-03-20 01:05:00,599 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,599 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59602): system.echo
+2026-03-20 01:05:00,599 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,599 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59603): system.echo
+2026-03-20 01:05:00,599 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,600 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59604): system.echo
+2026-03-20 01:05:00,600 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,600 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59605): system.echo
+2026-03-20 01:05:00,600 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,601 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59606): system.echo
+2026-03-20 01:05:00,601 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,601 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59607): system.echo
+2026-03-20 01:05:00,601 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,601 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59608): system.echo
+2026-03-20 01:05:00,602 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,602 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59609): system.echo
+2026-03-20 01:05:00,602 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,602 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59610): system.echo
+2026-03-20 01:05:00,603 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,603 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59611): system.echo
+2026-03-20 01:05:00,603 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,603 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59612): system.echo
+2026-03-20 01:05:00,603 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,604 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59613): system.echo
+2026-03-20 01:05:00,604 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:00,614 - PyArch-node_001 - [ERROR] - Error handling remote IPC client ('127.0.0.1', 59614): Unterminated string starting at: line 1 column 108 (char 107)
+2026-03-20 01:05:00,622 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59615): system.info
+2026-03-20 01:05:00,622 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:00,623 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59616): system.info
+2026-03-20 01:05:00,623 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:00,624 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59617): system.info
+2026-03-20 01:05:00,624 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:00,625 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59618): system.info
+2026-03-20 01:05:00,625 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:00,626 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59619): system.info
+2026-03-20 01:05:00,626 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:51,892 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59626): system.info
+2026-03-20 01:05:51,892 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:05:51,899 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59627): system.echo
+2026-03-20 01:05:51,899 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:05:51,907 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59628): system.echo
+2026-03-20 01:05:51,907 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,907 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59629): system.echo
+2026-03-20 01:05:51,907 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,908 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59630): system.echo
+2026-03-20 01:05:51,908 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,938 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59631): system.info
+2026-03-20 01:05:51,938 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:05:51,945 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59632): system.echo
+2026-03-20 01:05:51,946 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,951 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59633): system.echo
+2026-03-20 01:05:51,951 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,971 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59634): system.echo
+2026-03-20 01:05:51,971 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,972 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59635): system.echo
+2026-03-20 01:05:51,972 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,972 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59636): system.echo
+2026-03-20 01:05:51,972 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,973 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59637): system.echo
+2026-03-20 01:05:51,973 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,973 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59638): system.echo
+2026-03-20 01:05:51,973 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,973 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59639): system.echo
+2026-03-20 01:05:51,974 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,974 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59640): system.echo
+2026-03-20 01:05:51,974 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,975 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59641): system.echo
+2026-03-20 01:05:51,975 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,975 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59642): system.echo
+2026-03-20 01:05:51,975 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,976 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59643): system.echo
+2026-03-20 01:05:51,976 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,976 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59644): system.echo
+2026-03-20 01:05:51,976 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,976 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59645): system.echo
+2026-03-20 01:05:51,977 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,977 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59646): system.echo
+2026-03-20 01:05:51,977 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,977 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59647): system.echo
+2026-03-20 01:05:51,978 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,978 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59648): system.echo
+2026-03-20 01:05:51,978 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,978 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59649): system.echo
+2026-03-20 01:05:51,979 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,980 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59650): system.echo
+2026-03-20 01:05:51,980 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,980 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59651): system.echo
+2026-03-20 01:05:51,980 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,980 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59652): system.echo
+2026-03-20 01:05:51,981 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,981 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59653): system.echo
+2026-03-20 01:05:51,981 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,981 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59654): system.echo
+2026-03-20 01:05:51,982 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,982 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59655): system.echo
+2026-03-20 01:05:51,982 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,982 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59656): system.echo
+2026-03-20 01:05:51,982 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,983 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59657): system.echo
+2026-03-20 01:05:51,983 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,983 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59658): system.echo
+2026-03-20 01:05:51,983 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,983 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59659): system.echo
+2026-03-20 01:05:51,984 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,984 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59660): system.echo
+2026-03-20 01:05:51,984 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,984 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59661): system.echo
+2026-03-20 01:05:51,984 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,985 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59662): system.echo
+2026-03-20 01:05:51,985 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,985 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59663): system.echo
+2026-03-20 01:05:51,985 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,985 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59664): system.echo
+2026-03-20 01:05:51,985 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,985 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59665): system.echo
+2026-03-20 01:05:51,986 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,986 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59666): system.echo
+2026-03-20 01:05:51,986 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,987 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59667): system.echo
+2026-03-20 01:05:51,987 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,988 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59668): system.echo
+2026-03-20 01:05:51,988 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,988 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59669): system.echo
+2026-03-20 01:05:51,988 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,988 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59670): system.echo
+2026-03-20 01:05:51,989 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,989 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59671): system.echo
+2026-03-20 01:05:51,989 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,989 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59672): system.echo
+2026-03-20 01:05:51,990 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,990 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59673): system.echo
+2026-03-20 01:05:51,990 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,990 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59674): system.echo
+2026-03-20 01:05:51,990 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,991 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59675): system.echo
+2026-03-20 01:05:51,991 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,991 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59676): system.echo
+2026-03-20 01:05:51,991 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,991 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59677): system.echo
+2026-03-20 01:05:51,992 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,992 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59678): system.echo
+2026-03-20 01:05:51,992 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,992 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59679): system.echo
+2026-03-20 01:05:51,992 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,993 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59680): system.echo
+2026-03-20 01:05:51,993 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,993 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59681): system.echo
+2026-03-20 01:05:51,993 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,993 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59682): system.echo
+2026-03-20 01:05:51,994 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:51,994 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59683): system.echo
+2026-03-20 01:05:51,994 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:05:52,011 - PyArch-node_001 - [ERROR] - Error handling remote IPC client ('127.0.0.1', 59684): Unterminated string starting at: line 1 column 108 (char 107)
+2026-03-20 01:05:52,024 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59685): system.info
+2026-03-20 01:05:52,025 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:52,026 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59686): system.info
+2026-03-20 01:05:52,026 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:52,026 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59687): system.info
+2026-03-20 01:05:52,027 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:52,027 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59688): system.info
+2026-03-20 01:05:52,027 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:05:52,028 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59689): system.info
+2026-03-20 01:05:52,028 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:06:56,236 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 01:06:56,238 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:06:56,238 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:06:56,238 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:06:56,239 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:06:58,247 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59717): system.info
+2026-03-20 01:06:58,247 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:07:01,404 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59723): system.info
+2026-03-20 01:07:01,404 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:07:01,411 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59724): system.echo
+2026-03-20 01:07:01,411 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:07:01,418 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59725): system.echo
+2026-03-20 01:07:01,419 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,419 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59726): system.echo
+2026-03-20 01:07:01,419 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,419 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59727): system.echo
+2026-03-20 01:07:01,420 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,449 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59728): system.info
+2026-03-20 01:07:01,450 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:07:01,457 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59729): system.echo
+2026-03-20 01:07:01,457 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,463 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59730): system.echo
+2026-03-20 01:07:01,463 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,483 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59731): system.echo
+2026-03-20 01:07:01,483 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,484 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59732): system.echo
+2026-03-20 01:07:01,484 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,485 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59733): system.echo
+2026-03-20 01:07:01,485 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,485 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59734): system.echo
+2026-03-20 01:07:01,485 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,485 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59735): system.echo
+2026-03-20 01:07:01,486 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,486 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59736): system.echo
+2026-03-20 01:07:01,486 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,486 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59737): system.echo
+2026-03-20 01:07:01,487 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,487 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59738): system.echo
+2026-03-20 01:07:01,487 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,487 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59739): system.echo
+2026-03-20 01:07:01,487 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,488 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59740): system.echo
+2026-03-20 01:07:01,488 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,488 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59741): system.echo
+2026-03-20 01:07:01,488 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,489 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59742): system.echo
+2026-03-20 01:07:01,489 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,489 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59743): system.echo
+2026-03-20 01:07:01,489 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,490 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59744): system.echo
+2026-03-20 01:07:01,490 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,490 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59745): system.echo
+2026-03-20 01:07:01,490 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,490 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59746): system.echo
+2026-03-20 01:07:01,491 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,491 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59747): system.echo
+2026-03-20 01:07:01,491 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,492 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59748): system.echo
+2026-03-20 01:07:01,492 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,492 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59749): system.echo
+2026-03-20 01:07:01,493 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,493 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59750): system.echo
+2026-03-20 01:07:01,493 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,493 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59751): system.echo
+2026-03-20 01:07:01,493 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,494 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59752): system.echo
+2026-03-20 01:07:01,494 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,495 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59753): system.echo
+2026-03-20 01:07:01,495 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,495 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59754): system.echo
+2026-03-20 01:07:01,495 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,495 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59755): system.echo
+2026-03-20 01:07:01,496 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,496 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59756): system.echo
+2026-03-20 01:07:01,496 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,496 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59757): system.echo
+2026-03-20 01:07:01,496 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,497 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59758): system.echo
+2026-03-20 01:07:01,497 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,497 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59759): system.echo
+2026-03-20 01:07:01,497 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,497 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59760): system.echo
+2026-03-20 01:07:01,498 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,498 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59761): system.echo
+2026-03-20 01:07:01,498 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,498 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59762): system.echo
+2026-03-20 01:07:01,498 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,499 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59763): system.echo
+2026-03-20 01:07:01,499 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,499 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59764): system.echo
+2026-03-20 01:07:01,499 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,499 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59765): system.echo
+2026-03-20 01:07:01,500 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,500 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59766): system.echo
+2026-03-20 01:07:01,500 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,500 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59767): system.echo
+2026-03-20 01:07:01,501 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,501 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59768): system.echo
+2026-03-20 01:07:01,501 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,501 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59769): system.echo
+2026-03-20 01:07:01,501 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,502 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59770): system.echo
+2026-03-20 01:07:01,502 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,502 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59771): system.echo
+2026-03-20 01:07:01,502 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,502 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59772): system.echo
+2026-03-20 01:07:01,503 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,503 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59773): system.echo
+2026-03-20 01:07:01,503 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,503 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59774): system.echo
+2026-03-20 01:07:01,503 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,504 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59775): system.echo
+2026-03-20 01:07:01,504 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,504 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59776): system.echo
+2026-03-20 01:07:01,504 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,505 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59777): system.echo
+2026-03-20 01:07:01,505 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,505 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59778): system.echo
+2026-03-20 01:07:01,505 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,505 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59779): system.echo
+2026-03-20 01:07:01,505 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,505 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59780): system.echo
+2026-03-20 01:07:01,506 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:07:01,524 - PyArch-node_001 - [ERROR] - Error handling remote IPC client ('127.0.0.1', 59781): Unterminated string starting at: line 1 column 108 (char 107)
+2026-03-20 01:07:01,536 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59782): system.info
+2026-03-20 01:07:01,537 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:07:01,537 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59783): system.info
+2026-03-20 01:07:01,538 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:07:01,538 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59784): system.info
+2026-03-20 01:07:01,539 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:07:01,539 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59785): system.info
+2026-03-20 01:07:01,540 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:07:01,541 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59786): system.info
+2026-03-20 01:07:01,541 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:15,112 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59803): system.info
+2026-03-20 01:08:15,112 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:08:15,119 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59804): system.echo
+2026-03-20 01:08:15,119 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:08:15,127 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59805): system.echo
+2026-03-20 01:08:15,127 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,128 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59806): system.echo
+2026-03-20 01:08:15,128 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,128 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59807): system.echo
+2026-03-20 01:08:15,128 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,150 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59808): system.info
+2026-03-20 01:08:15,150 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:08:15,158 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59809): system.echo
+2026-03-20 01:08:15,159 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,163 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59810): system.echo
+2026-03-20 01:08:15,163 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,184 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59811): system.echo
+2026-03-20 01:08:15,184 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,184 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59812): system.echo
+2026-03-20 01:08:15,185 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,185 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59813): system.echo
+2026-03-20 01:08:15,185 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,185 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59814): system.echo
+2026-03-20 01:08:15,186 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,186 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59815): system.echo
+2026-03-20 01:08:15,186 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,186 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59816): system.echo
+2026-03-20 01:08:15,186 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,187 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59817): system.echo
+2026-03-20 01:08:15,187 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,187 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59818): system.echo
+2026-03-20 01:08:15,187 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,188 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59819): system.echo
+2026-03-20 01:08:15,188 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,188 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59820): system.echo
+2026-03-20 01:08:15,188 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,188 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59821): system.echo
+2026-03-20 01:08:15,189 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,189 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59822): system.echo
+2026-03-20 01:08:15,189 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,189 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59823): system.echo
+2026-03-20 01:08:15,189 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,190 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59824): system.echo
+2026-03-20 01:08:15,190 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,190 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59825): system.echo
+2026-03-20 01:08:15,191 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,191 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59826): system.echo
+2026-03-20 01:08:15,191 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,191 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59827): system.echo
+2026-03-20 01:08:15,191 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,192 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59828): system.echo
+2026-03-20 01:08:15,193 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,193 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59829): system.echo
+2026-03-20 01:08:15,193 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,194 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59830): system.echo
+2026-03-20 01:08:15,194 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,194 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59831): system.echo
+2026-03-20 01:08:15,194 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,194 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59832): system.echo
+2026-03-20 01:08:15,194 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,194 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59833): system.echo
+2026-03-20 01:08:15,195 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,195 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59834): system.echo
+2026-03-20 01:08:15,195 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,195 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59835): system.echo
+2026-03-20 01:08:15,195 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,196 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59836): system.echo
+2026-03-20 01:08:15,196 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,196 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59837): system.echo
+2026-03-20 01:08:15,196 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,197 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59838): system.echo
+2026-03-20 01:08:15,197 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,197 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59839): system.echo
+2026-03-20 01:08:15,197 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,198 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59840): system.echo
+2026-03-20 01:08:15,198 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,198 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59841): system.echo
+2026-03-20 01:08:15,198 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,198 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59842): system.echo
+2026-03-20 01:08:15,199 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,199 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59843): system.echo
+2026-03-20 01:08:15,199 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,199 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59844): system.echo
+2026-03-20 01:08:15,199 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,200 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59845): system.echo
+2026-03-20 01:08:15,200 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,200 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59846): system.echo
+2026-03-20 01:08:15,200 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,201 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59847): system.echo
+2026-03-20 01:08:15,201 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,201 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59848): system.echo
+2026-03-20 01:08:15,201 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,201 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59849): system.echo
+2026-03-20 01:08:15,202 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,202 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59850): system.echo
+2026-03-20 01:08:15,202 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,202 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59851): system.echo
+2026-03-20 01:08:15,202 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,203 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59852): system.echo
+2026-03-20 01:08:15,203 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,203 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59853): system.echo
+2026-03-20 01:08:15,203 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,203 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59854): system.echo
+2026-03-20 01:08:15,204 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,204 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59855): system.echo
+2026-03-20 01:08:15,204 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,204 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59856): system.echo
+2026-03-20 01:08:15,204 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,205 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59857): system.echo
+2026-03-20 01:08:15,205 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,205 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59858): system.echo
+2026-03-20 01:08:15,205 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,206 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59859): system.echo
+2026-03-20 01:08:15,206 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,206 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59860): system.echo
+2026-03-20 01:08:15,206 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:15,218 - PyArch-node_001 - [ERROR] - Error handling remote IPC client ('127.0.0.1', 59861): Unterminated string starting at: line 1 column 108 (char 107)
+2026-03-20 01:08:15,231 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59862): system.info
+2026-03-20 01:08:15,231 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:15,232 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59863): system.info
+2026-03-20 01:08:15,232 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:15,233 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59864): system.info
+2026-03-20 01:08:15,233 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:15,234 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59865): system.info
+2026-03-20 01:08:15,234 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:15,235 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59866): system.info
+2026-03-20 01:08:15,235 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:44,542 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59874): system.info
+2026-03-20 01:08:44,543 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:08:44,549 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59875): system.echo
+2026-03-20 01:08:44,549 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:08:44,556 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59876): system.echo
+2026-03-20 01:08:44,557 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,558 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59877): system.echo
+2026-03-20 01:08:44,558 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,558 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59878): system.echo
+2026-03-20 01:08:44,558 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,579 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59879): system.info
+2026-03-20 01:08:44,579 - PyArch-node_001 - [ERROR] - Access Denied: 'guest' lacks 'system:admin'
+2026-03-20 01:08:44,586 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59880): system.echo
+2026-03-20 01:08:44,586 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,591 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59881): system.echo
+2026-03-20 01:08:44,591 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,612 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59882): system.echo
+2026-03-20 01:08:44,612 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,613 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59883): system.echo
+2026-03-20 01:08:44,613 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,613 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59884): system.echo
+2026-03-20 01:08:44,613 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,613 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59885): system.echo
+2026-03-20 01:08:44,614 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,614 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59886): system.echo
+2026-03-20 01:08:44,614 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,614 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59887): system.echo
+2026-03-20 01:08:44,614 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,615 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59888): system.echo
+2026-03-20 01:08:44,615 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,615 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59889): system.echo
+2026-03-20 01:08:44,615 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,616 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59890): system.echo
+2026-03-20 01:08:44,616 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,616 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59891): system.echo
+2026-03-20 01:08:44,616 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,616 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59892): system.echo
+2026-03-20 01:08:44,617 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,617 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59893): system.echo
+2026-03-20 01:08:44,617 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,617 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59894): system.echo
+2026-03-20 01:08:44,617 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,618 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59895): system.echo
+2026-03-20 01:08:44,618 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,618 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59896): system.echo
+2026-03-20 01:08:44,618 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,619 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59897): system.echo
+2026-03-20 01:08:44,619 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,619 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59898): system.echo
+2026-03-20 01:08:44,619 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,619 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59899): system.echo
+2026-03-20 01:08:44,621 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,621 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59900): system.echo
+2026-03-20 01:08:44,621 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,621 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59901): system.echo
+2026-03-20 01:08:44,621 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,622 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59902): system.echo
+2026-03-20 01:08:44,623 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,623 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59903): system.echo
+2026-03-20 01:08:44,623 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,623 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59904): system.echo
+2026-03-20 01:08:44,624 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,624 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59905): system.echo
+2026-03-20 01:08:44,624 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,624 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59906): system.echo
+2026-03-20 01:08:44,625 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,625 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59907): system.echo
+2026-03-20 01:08:44,625 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,625 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59908): system.echo
+2026-03-20 01:08:44,625 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,626 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59909): system.echo
+2026-03-20 01:08:44,626 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,626 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59910): system.echo
+2026-03-20 01:08:44,626 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,626 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59911): system.echo
+2026-03-20 01:08:44,626 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,626 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59912): system.echo
+2026-03-20 01:08:44,627 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,627 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59913): system.echo
+2026-03-20 01:08:44,627 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,627 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59914): system.echo
+2026-03-20 01:08:44,628 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,628 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59915): system.echo
+2026-03-20 01:08:44,628 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,628 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59916): system.echo
+2026-03-20 01:08:44,629 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,629 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59917): system.echo
+2026-03-20 01:08:44,629 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,629 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59918): system.echo
+2026-03-20 01:08:44,629 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,630 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59919): system.echo
+2026-03-20 01:08:44,630 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,630 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59920): system.echo
+2026-03-20 01:08:44,630 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,630 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59921): system.echo
+2026-03-20 01:08:44,631 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,631 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59922): system.echo
+2026-03-20 01:08:44,631 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,631 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59923): system.echo
+2026-03-20 01:08:44,631 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,632 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59924): system.echo
+2026-03-20 01:08:44,632 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,632 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59925): system.echo
+2026-03-20 01:08:44,632 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,632 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59926): system.echo
+2026-03-20 01:08:44,633 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,633 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59927): system.echo
+2026-03-20 01:08:44,633 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,633 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59928): system.echo
+2026-03-20 01:08:44,633 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,634 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59929): system.echo
+2026-03-20 01:08:44,634 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,634 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59930): system.echo
+2026-03-20 01:08:44,634 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,634 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59931): system.echo
+2026-03-20 01:08:44,635 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:08:44,647 - PyArch-node_001 - [ERROR] - Error handling remote IPC client ('127.0.0.1', 59932): Unterminated string starting at: line 1 column 108 (char 107)
+2026-03-20 01:08:44,660 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59933): system.info
+2026-03-20 01:08:44,660 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:44,661 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59934): system.info
+2026-03-20 01:08:44,661 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:44,662 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59935): system.info
+2026-03-20 01:08:44,662 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:44,662 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59936): system.info
+2026-03-20 01:08:44,663 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:08:44,663 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59937): system.info
+2026-03-20 01:08:44,664 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:09:56,292 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59944): system.info
+2026-03-20 01:09:56,292 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:09:56,298 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59945): system.echo
+2026-03-20 01:09:56,298 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:09:56,314 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59946): system.info
+2026-03-20 01:09:56,314 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:09:56,329 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59947): system.echo
+2026-03-20 01:09:56,329 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,334 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59948): system.echo
+2026-03-20 01:09:56,334 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,355 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59949): system.echo
+2026-03-20 01:09:56,355 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,356 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59950): system.echo
+2026-03-20 01:09:56,356 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,356 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59951): system.echo
+2026-03-20 01:09:56,356 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,357 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59952): system.echo
+2026-03-20 01:09:56,357 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,357 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59953): system.echo
+2026-03-20 01:09:56,357 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,357 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59954): system.echo
+2026-03-20 01:09:56,358 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,358 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59955): system.echo
+2026-03-20 01:09:56,358 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,358 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59956): system.echo
+2026-03-20 01:09:56,358 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,359 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59957): system.echo
+2026-03-20 01:09:56,359 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,359 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59958): system.echo
+2026-03-20 01:09:56,359 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,359 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59959): system.echo
+2026-03-20 01:09:56,360 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,360 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59960): system.echo
+2026-03-20 01:09:56,360 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,360 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59961): system.echo
+2026-03-20 01:09:56,360 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,360 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59962): system.echo
+2026-03-20 01:09:56,361 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,361 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59963): system.echo
+2026-03-20 01:09:56,361 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,362 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59964): system.echo
+2026-03-20 01:09:56,362 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,362 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59965): system.echo
+2026-03-20 01:09:56,362 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,363 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59966): system.echo
+2026-03-20 01:09:56,363 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,364 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59967): system.echo
+2026-03-20 01:09:56,364 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,365 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59968): system.echo
+2026-03-20 01:09:56,365 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,365 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59969): system.echo
+2026-03-20 01:09:56,365 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,365 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59970): system.echo
+2026-03-20 01:09:56,365 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,365 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59971): system.echo
+2026-03-20 01:09:56,365 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,365 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59972): system.echo
+2026-03-20 01:09:56,365 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,366 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59973): system.echo
+2026-03-20 01:09:56,366 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,366 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59974): system.echo
+2026-03-20 01:09:56,367 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,367 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59975): system.echo
+2026-03-20 01:09:56,368 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,368 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59976): system.echo
+2026-03-20 01:09:56,368 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,368 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59977): system.echo
+2026-03-20 01:09:56,368 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,369 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59978): system.echo
+2026-03-20 01:09:56,369 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,369 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59979): system.echo
+2026-03-20 01:09:56,369 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,369 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59980): system.echo
+2026-03-20 01:09:56,369 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,370 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59981): system.echo
+2026-03-20 01:09:56,370 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,370 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59982): system.echo
+2026-03-20 01:09:56,370 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,370 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59983): system.echo
+2026-03-20 01:09:56,370 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,371 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59984): system.echo
+2026-03-20 01:09:56,371 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,371 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59985): system.echo
+2026-03-20 01:09:56,371 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,372 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59986): system.echo
+2026-03-20 01:09:56,372 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,372 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59987): system.echo
+2026-03-20 01:09:56,372 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,373 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59988): system.echo
+2026-03-20 01:09:56,373 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,373 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59989): system.echo
+2026-03-20 01:09:56,373 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,373 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59990): system.echo
+2026-03-20 01:09:56,374 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,374 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59991): system.echo
+2026-03-20 01:09:56,374 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,374 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59992): system.echo
+2026-03-20 01:09:56,374 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,375 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59993): system.echo
+2026-03-20 01:09:56,375 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,375 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59994): system.echo
+2026-03-20 01:09:56,375 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,375 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59995): system.echo
+2026-03-20 01:09:56,376 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,376 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59996): system.echo
+2026-03-20 01:09:56,376 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,376 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59997): system.echo
+2026-03-20 01:09:56,376 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,377 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59998): system.echo
+2026-03-20 01:09:56,377 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:09:56,385 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59999): system.info
+2026-03-20 01:09:56,385 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:09:56,386 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60000): system.info
+2026-03-20 01:09:56,387 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:09:56,387 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60001): system.info
+2026-03-20 01:09:56,388 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:09:56,388 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60002): system.info
+2026-03-20 01:09:56,389 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:09:56,389 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60003): system.info
+2026-03-20 01:09:56,390 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:10:26,518 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 01:10:26,519 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:10:26,519 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:10:26,520 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:10:26,520 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:10:28,527 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60012): system.info
+2026-03-20 01:10:28,527 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:10:40,592 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60019): system.info
+2026-03-20 01:10:40,592 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:10:40,598 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60020): system.echo
+2026-03-20 01:10:40,598 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: guest
+2026-03-20 01:10:40,614 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60021): system.info
+2026-03-20 01:10:40,614 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:10:40,629 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60022): system.echo
+2026-03-20 01:10:40,629 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,634 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60023): system.echo
+2026-03-20 01:10:40,634 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,655 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60024): system.echo
+2026-03-20 01:10:40,655 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,656 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60025): system.echo
+2026-03-20 01:10:40,656 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,656 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60026): system.echo
+2026-03-20 01:10:40,656 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,656 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60027): system.echo
+2026-03-20 01:10:40,657 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,657 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60028): system.echo
+2026-03-20 01:10:40,657 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,657 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60029): system.echo
+2026-03-20 01:10:40,657 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,657 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60030): system.echo
+2026-03-20 01:10:40,657 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,658 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60031): system.echo
+2026-03-20 01:10:40,658 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,658 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60032): system.echo
+2026-03-20 01:10:40,658 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,659 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60033): system.echo
+2026-03-20 01:10:40,659 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,659 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60034): system.echo
+2026-03-20 01:10:40,660 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,660 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60035): system.echo
+2026-03-20 01:10:40,660 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,661 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60036): system.echo
+2026-03-20 01:10:40,661 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,661 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60037): system.echo
+2026-03-20 01:10:40,661 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,662 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60038): system.echo
+2026-03-20 01:10:40,662 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,662 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60039): system.echo
+2026-03-20 01:10:40,662 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,663 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60040): system.echo
+2026-03-20 01:10:40,663 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,663 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60041): system.echo
+2026-03-20 01:10:40,663 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,664 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60042): system.echo
+2026-03-20 01:10:40,664 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,664 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60043): system.echo
+2026-03-20 01:10:40,664 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,664 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60044): system.echo
+2026-03-20 01:10:40,665 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,665 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60045): system.echo
+2026-03-20 01:10:40,665 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,666 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60046): system.echo
+2026-03-20 01:10:40,666 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,666 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60047): system.echo
+2026-03-20 01:10:40,666 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,667 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60048): system.echo
+2026-03-20 01:10:40,667 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,667 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60049): system.echo
+2026-03-20 01:10:40,667 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,667 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60050): system.echo
+2026-03-20 01:10:40,668 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,668 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60051): system.echo
+2026-03-20 01:10:40,668 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,668 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60052): system.echo
+2026-03-20 01:10:40,668 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,669 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60053): system.echo
+2026-03-20 01:10:40,669 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,669 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60054): system.echo
+2026-03-20 01:10:40,669 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,669 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60055): system.echo
+2026-03-20 01:10:40,669 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,669 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60056): system.echo
+2026-03-20 01:10:40,670 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,670 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60057): system.echo
+2026-03-20 01:10:40,670 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,670 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60058): system.echo
+2026-03-20 01:10:40,670 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,671 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60059): system.echo
+2026-03-20 01:10:40,671 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,671 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60060): system.echo
+2026-03-20 01:10:40,671 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,671 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60061): system.echo
+2026-03-20 01:10:40,672 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,672 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60062): system.echo
+2026-03-20 01:10:40,673 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,673 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60063): system.echo
+2026-03-20 01:10:40,673 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,673 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60064): system.echo
+2026-03-20 01:10:40,673 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,674 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60065): system.echo
+2026-03-20 01:10:40,674 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,674 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60066): system.echo
+2026-03-20 01:10:40,674 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,674 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60067): system.echo
+2026-03-20 01:10:40,675 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,675 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60068): system.echo
+2026-03-20 01:10:40,675 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,675 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60069): system.echo
+2026-03-20 01:10:40,675 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,676 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60070): system.echo
+2026-03-20 01:10:40,676 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,676 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60071): system.echo
+2026-03-20 01:10:40,676 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,676 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60072): system.echo
+2026-03-20 01:10:40,677 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,677 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60073): system.echo
+2026-03-20 01:10:40,677 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:10:40,685 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60074): system.info
+2026-03-20 01:10:40,686 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:10:40,686 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60075): system.info
+2026-03-20 01:10:40,687 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:10:40,687 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60076): system.info
+2026-03-20 01:10:40,687 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:10:40,688 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60077): system.info
+2026-03-20 01:10:40,688 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:10:40,689 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60078): system.info
+2026-03-20 01:10:40,689 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: toke...
+2026-03-20 01:14:04,100 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 01:14:04,101 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:14:04,102 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:14:04,102 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:14:04,102 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:14:06,107 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60104): system.info
+2026-03-20 01:14:06,107 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:14:13,434 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60110): system.info
+2026-03-20 01:14:13,435 - PyArch-node_001 - [WARNING] - Authentication attempt with empty token.
+2026-03-20 01:14:13,447 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60111): system.echo
+2026-03-20 01:14:13,447 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: admi...
+2026-03-20 01:14:13,451 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60112): system.echo
+2026-03-20 01:14:13,451 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: root...
+2026-03-20 01:14:13,454 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60113): system.echo
+2026-03-20 01:14:13,454 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: gues...
+2026-03-20 01:14:13,458 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60114): system.echo
+2026-03-20 01:14:13,458 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: 1234...
+2026-03-20 01:14:13,462 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60115): system.echo
+2026-03-20 01:14:13,462 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: pass...
+2026-03-20 01:14:13,465 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60116): system.echo
+2026-03-20 01:14:13,466 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:14:13,473 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60117): system.info
+2026-03-20 01:14:13,473 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:14:13,477 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60118): file.read
+2026-03-20 01:14:13,477 - PyArch-node_001 - [WARNING] - Rejected unknown command: file.read
+2026-03-20 01:14:13,481 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60119): process.list
+2026-03-20 01:14:13,481 - PyArch-node_001 - [WARNING] - Rejected unknown command: process.list
+2026-03-20 01:14:13,484 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60120): kernel.shutdown
+2026-03-20 01:14:13,485 - PyArch-node_001 - [WARNING] - Rejected unknown command: kernel.shutdown
+2026-03-20 01:14:13,492 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60121): system.info
+2026-03-20 01:14:13,492 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:34:39,350 - PyArch-node_001 - [INFO] - Initializing Modular Py-Arch Node Agent: node_001
+2026-03-20 01:34:39,351 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:34:39,352 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:34:39,352 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:34:39,352 - PyArch-node_001 - [INFO] - Scanning for OS extensions in: plugins
+2026-03-20 01:34:39,353 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:34:41,358 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60224): system.info
+2026-03-20 01:34:41,359 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:34:54,281 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60230): system.info
+2026-03-20 01:34:54,282 - PyArch-node_001 - [WARNING] - Authentication attempt with empty token.
+2026-03-20 01:34:54,293 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60231): system.echo
+2026-03-20 01:34:54,293 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: admi...
+2026-03-20 01:34:54,297 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60232): system.echo
+2026-03-20 01:34:54,298 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: root...
+2026-03-20 01:34:54,301 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60233): system.echo
+2026-03-20 01:34:54,301 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: gues...
+2026-03-20 01:34:54,305 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60234): system.echo
+2026-03-20 01:34:54,305 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: 1234...
+2026-03-20 01:34:54,309 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60235): system.echo
+2026-03-20 01:34:54,309 - PyArch-node_001 - [WARNING] - Failed authentication attempt with token: pass...
+2026-03-20 01:34:54,313 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60236): system.echo
+2026-03-20 01:34:54,313 - PyArch-node_001 - [INFO] - Dispatching 'system.echo' for identity: admin
+2026-03-20 01:34:54,320 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60237): system.info
+2026-03-20 01:34:54,320 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:34:54,323 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60238): file.read
+2026-03-20 01:34:54,327 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60239): process.list
+2026-03-20 01:34:54,331 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60240): kernel.shutdown
+2026-03-20 01:34:54,338 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60241): system.info
+2026-03-20 01:34:54,338 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-20 01:38:15,484 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-20 01:38:15,485 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-20 01:38:15,486 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-20 01:38:15,486 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-20 01:38:15,486 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-20 01:38:17,503 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 60260): system.info
+2026-03-20 01:38:17,503 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
+2026-03-21 15:29:53,787 - PyArch-node_001 - [INFO] - Initializing Py-Arch Node Agent: node_001
+2026-03-21 15:29:53,788 - PyArch-node_001 - [INFO] - ProcessPoolExecutor initialized with 24 workers.
+2026-03-21 15:29:53,789 - PyArch-node_001 - [INFO] - Core SystemPlugin loaded.
+2026-03-21 15:29:53,789 - PyArch-node_001 - [INFO] - --- Booting Py-Arch OS Node: node_001 ---
+2026-03-21 15:29:53,789 - PyArch-node_001 - [INFO] - IPC Server successfully bound to ('127.0.0.1', 8888)
+2026-03-21 15:29:55,794 - PyArch-node_001 - [DEBUG] - Remote IPC request from ('127.0.0.1', 59710): system.info
+2026-03-21 15:29:55,794 - PyArch-node_001 - [INFO] - Dispatching 'system.info' for identity: admin
