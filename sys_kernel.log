@@ -47,3 +47,14 @@
 2026-03-21 22:40:15,791 [INFO] HAL_KERNEL: Service 'watchdog' started (Integrity Mode).
 2026-03-21 22:40:15,900 [INFO] HAL_KERNEL: Distributed Node Online: ('127.0.0.1', 9001) [ID: node_1774104011]
 2026-03-21 22:42:51,430 [CRITICAL] HAL_KERNEL: SELF_DESTRUCT_TRIGGERED: USER_INITIATED_SHUTDOWN
+2026-03-21 22:43:57,071 [INFO] HAL_KERNEL: HAL Initialized. Core Logic: 12 Cores | 32675MB RAM
+2026-03-21 22:43:57,074 [INFO] HAL_KERNEL: Registered: [echo] -> E:\PyArch\plugins\echo.py
+2026-03-21 22:43:57,078 [ERROR] HAL_KERNEL: Critical failure loading 'net.py': cannot import name 'KERNEL_LOADER' from partially initialized module 'core.loader' (most likely due to a circular import) (e:\PyArch\core\loader.py)
+2026-03-21 22:43:57,079 [INFO] HAL_KERNEL: Registered: [trap] -> E:\PyArch\plugins\trap.py
+2026-03-21 22:43:57,079 [INFO] HAL_KERNEL: Registered: [vault] -> E:\PyArch\plugins\vault.py
+2026-03-21 22:43:57,079 [INFO] HAL_KERNEL: Loader initialized. 3 plugins registered.
+2026-03-21 22:44:04,674 [INFO] HAL_KERNEL: Initializing system services...
+2026-03-21 22:44:04,674 [INFO] HAL_KERNEL: Service 'watchdog' started (Integrity Mode).
+2026-03-21 22:44:04,784 [INFO] HAL_KERNEL: Distributed Node Online: ('127.0.0.1', 9001) [ID: node_1774104237]
+2026-03-21 22:44:07,991 [ERROR] HAL_KERNEL: RUNTIME_EXECUTION_ERROR [echo]: ERR_EMPTY_COMMAND_ARGS
+2026-03-21 22:44:11,829 [ERROR] HAL_KERNEL: RUNTIME_EXECUTION_ERROR [echo]: ERR_EMPTY_COMMAND_ARGS

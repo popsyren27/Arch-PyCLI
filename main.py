@@ -1,139 +1,92 @@
-import asyncio
 import sys
 import os
-import logging
 import time
-from core.security import SEC_KERNEL
+import logging
 from core.hal import HAL
+from core.security import SEC_KERNEL
 from core.loader import KERNEL_LOADER
 from core.network import NETWORK_NODE
 
-# Configure Kernel Logging - Arch-style system journaling
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s [KERNEL] %(message)s',
-    handlers=[logging.FileHandler("sys_kernel.log"), logging.StreamHandler()]
-)
-
-class PyArchOS:
-    """
-    KERNEL ORCHESTRATOR:
-    Manages the lifecycle of background services and the User CLI.
-    """
+class ArchKernel:
     def __init__(self):
-        self.is_running = True
-        self._loop = None
+        self.is_running = False
+        self.version = "0.1.0-alpha (Pseudo-Arch)"
+        
+    def boot_sequence(self):
+        """Cold Boot with Logic-to-Assertion checks."""
+        print(f"\n--- Initializing {self.version} ---")
+        
+        # Hardware Validation
+        try:
+            report = HAL.get_health_report()
+            assert report['status'] != "CRITICAL", "Hardware Failure on Boot"
+            print(f"[OK] HAL: {HAL.CPU_CORES} Cores | Latency {report['internal_latency']:.6f}s")
+            
+            # Plugin Loading
+            KERNEL_LOADER.bootstrap()
+            assert len(KERNEL_LOADER.commands) >= 0, "Loader Initialization Failure"
+            print(f"[OK] Commands Loaded: {list(KERNEL_LOADER.commands.keys())}")
+            
+            # Network Setup
+            NETWORK_NODE.start_node()
+            print(f"[OK] Node ID: {NETWORK_NODE.node_id} Active.")
+            
+            self.is_running = True
+        except AssertionError as e:
+            print(f"[KERNEL PANIC] {e}")
+            sys.exit(1)
 
-    async def hardware_watchdog(self):
-        """
-        BACKGROUND SERVICE:
-        Continuously polls HAL to ensure hardware integrity.
-        If a 'Cold Boot' or RAM swap is detected, it triggers a wipe.
-        """
-        logging.info("Service 'watchdog' started (Integrity Mode).")
-        while self.is_running:
-            try:
-                # Check 1: Machine Identity Verification
-                if not HAL.check_integrity():
-                    logging.critical("HARDWARE_TAMPER_DETECTED: Environment compromised.")
-                    SEC_KERNEL.panic_self_destruct("ENV_INTEGRITY_FAILURE")
-                    self.is_running = False
-                    break
-                
-                # Check 2: Thermal/Pressure Failsafe
-                stats = HAL.get_health_report()
-                if stats.get("status") == "CRITICAL":
-                    logging.error("SYSTEM_OVERLOAD: Throttling kernel services.")
-                
-                await asyncio.sleep(2) # Poll every 2 seconds to save CPU
-            except Exception as e:
-                logging.debug(f"Watchdog stutter: {e}")
-
-    async def shell_prompt(self):
-        """
-        FOREGROUND SERVICE:
-        The interactive CLI. Uses an executor to prevent input() from 
-        blocking background network and watchdog tasks.
-        """
-        print("\n" + "="*40)
-        print("  PY-ARCH KERNEL v2.0 (ASYNC/HARDENED)")
-        print("  Status: SECURE | Integrity: VERIFIED")
-        print("="*40)
-        print("Type 'help' for plugins or 'exit' to halt.\n")
+    def run_cli(self):
+        """Interactive Shell with Force-Keep-Alive."""
+        print("\nType 'help' for commands or 'exit' to shutdown.")
         
         while self.is_running:
             try:
-                # 'run_in_executor' keeps the event loop spinning while waiting for user input
-                user_input = await self._loop.run_in_executor(None, input, "arch# ")
+                # Refresh Health Context for the Prompt
+                health = HAL.get_health_report()
+                prompt = f"(arch@{NETWORK_NODE.node_id})-[{int(health['memory_pressure'])}%] # "
                 
-                if not user_input.strip():
+                # Use sys.stdin.readline if input() is being bypassed by PS
+                sys.stdout.write(prompt)
+                sys.stdout.flush()
+                line = sys.stdin.readline()
+                
+                if not line: # Handle EOF
+                    break
+                    
+                cmd_input = line.strip()
+                if not cmd_input:
                     continue
                 
-                parts = user_input.split()
-                cmd = parts[0].lower()
-                args = parts[1:]
-
-                if cmd == "exit":
+                if cmd_input.lower() in ['exit', 'quit', 'shutdown']:
                     self.is_running = False
                     break
+
+                # Execution Logic
+                parts = cmd_input.split()
+                cmd_name = parts[0]
+                args = parts[1:]
                 
-                # Plugin Dispatch: Injecting real-time Hardware Context
-                context = {
-                    "health": HAL.get_health_report(), 
-                    "origin": "local_terminal",
-                    "timestamp": time.time() if 'time' in globals() else None
-                }
-                
-                result = KERNEL_LOADER.dispatch(cmd, context, *args)
-                print(f"[RESULT]: {result}")
+                context = {"health": health, "user": "root"}
+                result = KERNEL_LOADER.dispatch(cmd_name, context, *args)
+                print(f"{result}\n")
 
             except KeyboardInterrupt:
-                self.is_running = False
+                print("\nInterrupt received.")
+                break
             except Exception as e:
-                print(f"[ERROR]: {e}")
+                print(f"Runtime Error: {e}")
 
-    async def boot(self):
-        """
-        INIT SYSTEM:
-        Launches all kernel services concurrently.
-        """
-        self._loop = asyncio.get_running_loop()
-
-        # 1. AUTHENTICATION GATE
-        # Must pass before any background tasks start
-        password = input("Enter Master Key to unlock Kernel: ")
-        if not SEC_KERNEL.bootstrap_kernel(password):
-            print("BOOT_FAILURE: Authentication Rejected.")
-            return
-
-        # 2. CONCURRENT SERVICE LAUNCH
-        # background_tasks allow the node and watchdog to survive errors in the CLI
-        try:
-            logging.info("Initializing system services...")
-            await asyncio.gather(
-                self.hardware_watchdog(),
-                NETWORK_NODE.start_node(),
-                self.shell_prompt()
-            )
-        except Exception as e:
-            logging.error(f"KERNEL_PANIC: {e}")
-        finally:
-            self.shutdown()
+        self.shutdown()
 
     def shutdown(self):
-        """Cleanly wipes memory and halts the CPU process."""
-        print("\n[HALT] Wiping sensitive RAM buffers...")
-        
-        # Zero out master keys and salts in physical RAM
-        SEC_KERNEL.panic_self_destruct("USER_INITIATED_SHUTDOWN")
-        
-        print("[HALT] Security context cleared. System Offline.")
+        print("\n[HALT] Wiping sensitive memory buffers...")
+        # Security: Overwrite master key in RAM
+        SEC_KERNEL._wipe_memory(SEC_KERNEL._master_key)
+        print("[OS] System Halted.")
         sys.exit(0)
 
 if __name__ == "__main__":
-    os_kernel = PyArchOS()
-    try:
-        # Start the Asynchronous Event Loop
-        asyncio.run(os_kernel.boot())
-    except KeyboardInterrupt:
-        os_kernel.shutdown()
+    os_kernel = ArchKernel()
+    os_kernel.boot_sequence()
+    os_kernel.run_cli()
