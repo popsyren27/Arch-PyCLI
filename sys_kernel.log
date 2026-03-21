@@ -41,3 +41,8 @@
 2026-03-21 21:16:34,446 [INFO] HAL: Health Report Generated: HEALTHY
 2026-03-21 21:16:43,636 [INFO] HAL: Health Report Generated: HEALTHY
 2026-03-21 21:16:57,501 [INFO] HAL: Health Report Generated: HEALTHY
+2026-03-21 22:38:16,672 [INFO] HAL_KERNEL: HAL Initialized. Core Logic: 12 Cores | 32675MB RAM
+2026-03-21 22:40:11,197 [INFO] HAL_KERNEL: HAL Initialized. Core Logic: 12 Cores | 32675MB RAM
+2026-03-21 22:40:15,791 [INFO] HAL_KERNEL: Initializing system services...
+2026-03-21 22:40:15,791 [INFO] HAL_KERNEL: Service 'watchdog' started (Integrity Mode).
+2026-03-21 22:40:15,900 [INFO] HAL_KERNEL: Distributed Node Online: ('127.0.0.1', 9001) [ID: node_1774104011]
