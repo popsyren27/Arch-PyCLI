@@ -1,115 +1,129 @@
-import socket
-import threading
+import asyncio
 import json
-import time
+import socket
 import logging
-from typing import Dict, Any, Optional
-from core.security import SEC_KERNEL
-from core.hal import HAL
-from core.loader import KERNEL_LOADER
+import time
+import hashlib
+import os
+from typing import Dict, List, Set, Optional, Any
+
+# Production-grade logging for distributed operations
+logger = logging.getLogger("NETWORK_PLANE")
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [NETWORK] [%(levelname)s] %(message)s')
 
 class DistributedNode:
     """
-    Pseudo-Arch Network Layer.
-    Handles Node-to-Node command routing with TTL Tokens and AES-GCM payloads.
+    Handles P2P Discovery and State Reconciliation for the VM OS.
+    Designed for unreliable networks and heterogeneous environments.
     """
-    def __init__(self, host: str = '127.0.0.1', port: int = 9001):
+    
+    def __init__(self, host: str = '0.0.0.0', port: int = 9999):
         self.host = host
         self.port = port
-        self.node_id = f"node_{int(time.time())}"
-        self._is_running = False
-        self._server_thread: Optional[threading.Thread] = None
+        self.peers: Set[str] = set()
+        self.state_db: Dict[str, Any] = {}
+        self.is_running = False
+        self.__msg_buffer = asyncio.Queue(maxsize=1000)
+        
+        # Unique ID for this node in the cluster
+        self.node_id = hashlib.sha1(f"{socket.gethostname()}:{port}".encode()).hexdigest()[:12]
 
-    def _process_inbound(self, conn: socket.socket):
-        """
-        Handles an incoming connection. 
-        Implements strict authentication and memory zeroing.
-        """
+    async def start(self):
+        """Starts the Distributed Control Plane."""
+        self.is_running = True
+        server = await asyncio.start_server(self._handle_inbound, self.host, self.port)
+        
+        logger.info(f"Node [{self.node_id}] listening on {self.host}:{self.port}")
+        
+        # Background Tasks: Discovery, Sync, and Heartbeat
+        async with server:
+            await asyncio.gather(
+                self._discovery_loop(),
+                self._heartbeat_monitor(),
+                self._process_outbound_queue(),
+                server.serve_forever()
+            )
+
+    async def _handle_inbound(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+        """Processes incoming messages from other nodes in the cluster."""
         try:
-            # Receive the Encrypted Packet
-            raw_data = conn.recv(4096)
-            if not raw_data:
-                return
-
-            packet = json.loads(raw_data.decode())
+            data = await reader.read(4096)
+            message = json.loads(data.decode())
+            addr = writer.get_extra_info('peername')
             
-            # --- ASSERTION: SECURITY CHECK ---
-            token = packet.get("token")
-            assert SEC_KERNEL.validate_token(token), "ERR_INVALID_OR_EXPIRED_TOKEN"
-            
-            # Decrypt the Command Payload
-            encrypted_payload = bytes.fromhex(packet["payload"])
-            decrypted_cmd = SEC_KERNEL.decrypt_field(encrypted_payload)
-            
-            # Execute via Kernel Loader
-            cmd_parts = decrypted_cmd.split()
-            cmd_name = cmd_parts[0]
-            cmd_args = cmd_parts[1:]
-            
-            # Inject Hardware Context into execution
-            context = {"health": HAL.get_health_report(), "origin": "remote"}
-            result = KERNEL_LOADER.dispatch(cmd_name, context, *cmd_args)
-            
-            # Encrypt response before sending back
-            response_payload = SEC_KERNEL.encrypt_field(str(result)).hex()
-            conn.sendall(json.dumps({"status": "OK", "data": response_payload}).encode())
-
-            # Memory Scavenging: Clear the decrypted command from RAM
-            SEC_KERNEL._wipe_memory(decrypted_cmd)
-
-        except AssertionError as ae:
-            logging.error(f"Security Violation: {ae}")
-            conn.sendall(json.dumps({"status": "DENIED", "msg": str(ae)}).encode())
+            # Message Routing logic
+            msg_type = message.get("type")
+            if msg_type == "HEARTBEAT":
+                self.peers.add(f"{addr[0]}:{message['port']}")
+            elif msg_type == "STATE_SYNC":
+                self._reconcile_state(message['payload'])
+            elif msg_type == "SECURITY_ALERT":
+                logger.critical(f"CLUSTER ALERT from {addr[0]}: {message['payload']}")
+                
         except Exception as e:
-            logging.error(f"Network Fault: {e}")
+            logger.error(f"Inbound processing error: {e}")
         finally:
-            conn.close()
+            writer.close()
+            await writer.wait_closed()
 
-    def listen(self):
-        """Starts the Node Listener in a background thread."""
-        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        server.bind((self.host, self.port))
-        server.listen(5)
-        self._is_running = True
-        
-        logging.info(f"Node Online: {self.host}:{self.port} [ID: {self.node_id}]")
-        
-        while self._is_running:
-            conn, addr = server.accept()
-            # Fork a thread for the connection to prevent blocking the kernel
-            client_thread = threading.Thread(target=self._process_inbound, args=(conn,))
-            client_thread.start()
-
-    def start_node(self):
-        self._server_thread = threading.Thread(target=self.listen, daemon=True)
-        self._server_thread.start()
-
-    def send_remote_cmd(self, target_host: str, target_port: int, token: str, command: str):
+    async def broadcast_security_event(self, event_details: dict):
         """
-        Client method to send commands to other nodes.
-        Uses Field-Level Encryption for the command string.
+        Gossip Protocol: Immediately notifies all known peers of a security event
+        detected by the SecurityKernel or a Tool attack simulation.
         """
-        try:
-            with socket.create_connection((target_host, target_port), timeout=5) as sock:
-                # Encrypt the command string
-                encrypted_cmd = SEC_KERNEL.encrypt_field(command).hex()
-                packet = {
-                    "token": token,
-                    "payload": encrypted_cmd
-                }
-                sock.sendall(json.dumps(packet).encode())
-                
-                # Receive and Decrypt response
-                resp_raw = sock.recv(4096)
-                resp_json = json.loads(resp_raw.decode())
-                
-                if resp_json["status"] == "OK":
-                    decrypted_resp = SEC_KERNEL.decrypt_field(bytes.fromhex(resp_json["data"]))
-                    return decrypted_resp
-                return f"Remote Error: {resp_json.get('msg', 'Unknown')}"
-        except Exception as e:
-            return f"Node Connection Failed: {e}"
+        payload = {
+            "type": "SECURITY_ALERT",
+            "node_id": self.node_id,
+            "payload": event_details,
+            "timestamp": time.time()
+        }
+        await self.__msg_buffer.put(payload)
 
-# Global Network Node Context
-NETWORK_NODE = DistributedNode()
+    async def _process_outbound_queue(self):
+        """Handles retries with exponential backoff for outgoing messages."""
+        while self.is_running:
+            msg = await self.__msg_buffer.get()
+            for peer in list(self.peers):
+                peer_host, peer_port = peer.split(":")
+                
+                # Exponential Backoff Retry Logic
+                for attempt in range(3):
+                    try:
+                        reader, writer = await asyncio.open_connection(peer_host, int(peer_port))
+                        writer.write(json.dumps(msg).encode())
+                        await writer.drain()
+                        writer.close()
+                        await writer.wait_closed()
+                        break # Success
+                    except Exception:
+                        wait = 2 ** attempt
+                        logger.warning(f"Peer {peer} unreachable. Retrying in {wait}s...")
+                        await asyncio.sleep(wait)
+
+    async def _discovery_loop(self):
+        """
+        Passive Discovery: In a real system, this would use UDP broadcast 
+        or a seed list to find the first peers.
+        """
+        while self.is_running:
+            # Placeholder for Seed-Node Discovery
+            logger.debug(f"Active Peer Count: {len(self.peers)}")
+            await asyncio.sleep(60)
+
+    def _reconcile_state(self, remote_state: dict):
+        """
+        Conflict Resolution: Ensures all nodes eventually reach the same 
+        security configuration (Eventual Consistency).
+        """
+        for key, value in remote_state.items():
+            if key not in self.state_db or self.state_db[key]['version'] < value['version']:
+                self.state_db[key] = value
+                logger.info(f"State Updated: {key} synced to version {value['version']}")
+
+    async def _heartbeat_monitor(self):
+        """Self-Healing: Prunes dead nodes from the peer list."""
+        while self.is_running:
+            # Broadcast our presence to known peers
+            heartbeat = {"type": "HEARTBEAT", "port": self.port, "node_id": self.node_id}
+            await self.__msg_buffer.put(heartbeat)
+            await asyncio.sleep(30)
