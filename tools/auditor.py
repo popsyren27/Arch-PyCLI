@@ -4,8 +4,8 @@ import os
 import logging
 
 # Configuration for the target "Pseudo-Arch" Node
-TARGET_IP = "0.0.0.0"
-TARGET_PORT = 9999
+TARGET_IP = "127.0.0.1"
+TARGET_PORT = 9001
 VAULT_FILE = "vault.json"
 
 def attempt_unauthorized_relay():
