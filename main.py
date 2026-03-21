@@ -6,7 +6,6 @@ from core.hal import HAL
 from core.security import SEC_KERNEL
 from core.loader import KERNEL_LOADER
 from core.network import NETWORK_NODE
-from core.logger import BG_LOGGER
 
 class ArchKernel:
     def __init__(self):
@@ -81,8 +80,6 @@ class ArchKernel:
         self.shutdown()
 
     def shutdown(self):
-        print("\n[HALT] Closing Kernel Services...")
-        BG_LOGGER.finalize_and_decrypt()
         print("\n[HALT] Wiping sensitive memory buffers...")
         # Security: Overwrite master key in RAM
         SEC_KERNEL._wipe_memory(SEC_KERNEL._master_key)
