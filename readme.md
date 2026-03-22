@@ -1,8 +1,8 @@
-# Py-Arch: Distributed Pseudo-OS Kernel
-**Version:** `0.1.0-alpha (Hardened)`  
+# Arch-PyCLI: Distributed Pseudo-OS Kernel
+**Version:** `0.1.0-alpha`  
 **Architecture:** Distributed Micro-Kernel / Plugin-Hybrid
 
-Py-Arch is a high-security terminal environment designed to emulate the "Power-User" philosophy of Arch Linux. It integrates low-level system hooks, hardware-rooted encryption, and a decentralized node-to-node communication protocol.
+Arch-PyCLIh is a high-security terminal environment designed to emulate the "Power-User" philosophy of Arch Linux. It integrates low-level system hooks, hardware-rooted encryption, and a decentralized node-to-node communication protocol.
 
 ---
 
@@ -30,7 +30,7 @@ The system monitors for "Near-Miss" authentication attempts.
 * **Result:** The attacker receives a `[SUCCESS]` message, but the data is actually locked into a "Dead-End" hardware vault.
 
 ### Low-Level Memory Scavenging
-Unlike standard Python scripts, Py-Arch uses `ctypes` to perform **RAM Scrubbing**.
+Unlike standard Python scripts, Arch-PyCLI uses `ctypes` to perform **RAM Scrubbing**.
 * **Action:** Immediately after a sensitive string (like a password) is used, the kernel overwrites that specific memory address with zeros.
 
 ### Additional Features
