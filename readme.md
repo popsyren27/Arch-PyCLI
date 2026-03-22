@@ -1,43 +1,45 @@
-# 🛡️ Py-Arch: Distributed Pseudo-OS Kernel
-**Version:** `0.1.0-alpha (Hardened)`  
-**Architecture:** Distributed Micro-Kernel / Plugin-Hybrid
+# Arch-PyCLI
 
-Py-Arch is a high-security terminal environment designed to emulate the "Power-User" philosophy of Arch Linux. It integrates low-level system hooks, hardware-rooted encryption, and a decentralized node-to-node communication protocol.
+## Overview
 
----
+Arch-PyCLI is a Python-based command-line framework that implements a modular plugin system, an encrypted communication layer, and a basic security-oriented execution environment.
 
-## 🧩 System Architecture
+It is not an operating system. It is not a kernel in the traditional sense. It is a CLI framework with components structured to resemble kernel-like separation of concerns.
 
-The kernel operates on a **Zero-Trust** model, where every system component is isolated into a specific core module.
+The project is experimental and intended for learning, prototyping, and exploration of system-like architecture patterns in Python.
 
-### 1. Core Modules
-* **`HAL` (Hardware Abstraction Layer):** Provides "Concrete Proof" of system health. It monitors CPU affinity, memory pressure, and establishes a hardware-based latency baseline.
-* **`SecurityKernel`:** The central authority for AES-GCM Field-Level Encryption and memory management. It features a `_wipe_memory` hook to zero out RAM buffers.
-* **`Loader`:** A dynamic engine that maps Python scripts in `/plugins` to system commands. This allows for **Full Modularity** without rebooting the kernel.
-* **`NetworkNode`:** Manages encrypted TCP sockets. It facilitates inter-node execution using **15-minute Short-Lived Tokens**.
+## Features
 
----
+- Interactive command-line interface
+- Plugin-based command system
+- Dynamic loading of Python modules from a plugins directory
+- AES-GCM encryption for sensitive operations
+- Token-based authentication for network execution
+- TCP-based remote command execution
+- Basic system monitoring via a hardware abstraction layer
+- Separation of concerns across core modules
 
-## ⚡ Key Features & Security Proofs
+## Architecture
 
-### 🔐 Hardware-Locked Polymorphism
-The kernel utilizes your machine's **Motherboard UUID** to derive encryption keys. 
-> **Proof:** If a `vault.json` file is moved to another computer, it becomes mathematically impossible to decrypt, as the required hardware ID will not match.
+The system is organized into the following core components:
 
-### 🪤 Polymorphic Honey-Pot Traps
-The system monitors for "Near-Miss" authentication attempts.
-* **Logic:** If an input key is >80% similar to the master key, the system "Fake-Encrypts" the data.
-* **Result:** The attacker receives a `[SUCCESS]` message, but the data is actually locked into a "Dead-End" hardware vault.
+- Loader  
+  Responsible for discovering and loading plugins at runtime. Maps plugin commands to callable functions.
 
-### 🧼 Low-Level Memory Scavenging
-Unlike standard Python scripts, Py-Arch uses `ctypes` to perform **RAM Scrubbing**.
-* **Action:** Immediately after a sensitive string (like a password) is used, the kernel overwrites that specific memory address with zeros.
+- Security Kernel  
+  Handles encryption, decryption, and token validation. Uses AES-GCM and PBKDF2 for key derivation.
 
----
+- HAL (Hardware Abstraction Layer)  
+  Collects system metrics such as CPU usage, memory usage, and system uptime using psutil.
 
-## 🚀 Installation & Usage
+- Network Node  
+  Provides a TCP server that accepts encrypted requests, validates tokens, executes commands via the loader, and returns encrypted responses.
 
-### 1. Dependencies
-Ensure your environment has the following low-level libraries:
-```bash
-pip install psutil cryptography
+- Plugins  
+  Independent Python modules that define executable commands. Each plugin exposes a standard interface expected by the loader.
+
+## Installation
+
+Requirements:
+- Python 3.9+
+- pip
