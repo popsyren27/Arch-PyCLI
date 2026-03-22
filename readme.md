@@ -1,4 +1,4 @@
-# 🛡️ Py-Arch: Distributed Pseudo-OS Kernel
+# Py-Arch: Distributed Pseudo-OS Kernel
 **Version:** `0.1.0-alpha (Hardened)`  
 **Architecture:** Distributed Micro-Kernel / Plugin-Hybrid
 
@@ -6,7 +6,7 @@ Py-Arch is a high-security terminal environment designed to emulate the "Power-U
 
 ---
 
-## 🧩 System Architecture
+## System Architecture
 
 The kernel operates on a **Zero-Trust** model, where every system component is isolated into a specific core module.
 
@@ -18,9 +18,9 @@ The kernel operates on a **Zero-Trust** model, where every system component is i
 
 ---
 
-## ⚡ Key Features & Security Proofs
+## Key Features & Security Proofs
 
-### 🔐 Hardware-Locked Polymorphism
+### Hardware-Locked Polymorphism
 The kernel utilizes your machine's **Motherboard UUID** to derive encryption keys. 
 > **Proof:** If a `vault.json` file is moved to another computer, it becomes mathematically impossible to decrypt, as the required hardware ID will not match.
 
@@ -29,15 +29,15 @@ The system monitors for "Near-Miss" authentication attempts.
 * **Logic:** If an input key is >80% similar to the master key, the system "Fake-Encrypts" the data.
 * **Result:** The attacker receives a `[SUCCESS]` message, but the data is actually locked into a "Dead-End" hardware vault.
 
-### 🧼 Low-Level Memory Scavenging
+### Low-Level Memory Scavenging
 Unlike standard Python scripts, Py-Arch uses `ctypes` to perform **RAM Scrubbing**.
 * **Action:** Immediately after a sensitive string (like a password) is used, the kernel overwrites that specific memory address with zeros.
 
+### Additional Features
+
+WIP
 ---
 
-## 🚀 Installation & Usage
+## Installation & Usage
 
-### 1. Dependencies
-Ensure your environment has the following low-level libraries:
-```bash
-pip install psutil cryptography
+WIP
