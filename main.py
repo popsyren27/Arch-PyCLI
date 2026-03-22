@@ -6,6 +6,7 @@ from core.hal import HAL
 from core.security import SEC_KERNEL
 from core.loader import KERNEL_LOADER
 from core.network import NETWORK_NODE
+import inspect
 
 class ArchKernel:
     def __init__(self):
@@ -19,7 +20,8 @@ class ArchKernel:
         # Hardware Validation
         try:
             report = HAL.get_health_report()
-            assert report['status'] != "CRITICAL", "Hardware Failure on Boot"
+            if report['status'] == "CRITICAL":
+                raise RuntimeError("Hardware Failure on Boot")
             print(f"[OK] HAL: {HAL.CPU_CORES} Cores | Latency {report['internal_latency']:.6f}s")
             
             # Plugin Loading
@@ -64,8 +66,15 @@ class ArchKernel:
 
                 # Execution Logic
                 parts = cmd_input.split()
+                if not parts:
+                    continue
                 cmd_name = parts[0]
                 args = parts[1:]
+                
+                # Validate command name (alphanumeric + underscore only)
+                if not cmd_name.replace('_', '').isalnum():
+                    print(f"Invalid command name: {cmd_name}")
+                    continue
                 
                 context = {"health": health, "user": "root"}
                 result = KERNEL_LOADER.dispatch(cmd_name, context, *args)
