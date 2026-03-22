@@ -2,7 +2,7 @@
 **Version:** `0.1.0-alpha`  
 **Architecture:** Distributed Micro-Kernel / Plugin-Hybrid
 
-Arch-PyCLIh is a high-security terminal environment designed to emulate the "Power-User" philosophy of Arch Linux. It integrates low-level system hooks, hardware-rooted encryption, and a decentralized node-to-node communication protocol.
+Arch-PyCLI is a high-security terminal environment designed to emulate the "Power-User" philosophy of Arch Linux. It integrates low-level system hooks, hardware-rooted encryption, and a decentralized node-to-node communication protocol.
 
 ---
 
