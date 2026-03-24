@@ -131,5 +131,3 @@ python scripts/run_tests.py
 - The system uses AES-GCM for on-disk and in-flight payload encryption, and issues short-lived tokens for remote execution.
 - For production or networked deployments, use valid CA-signed certificates and enable `require_client_cert` if mutual TLS is desired.
 - Keep backups of your master key or use the provided `export_master_blob`/`import_master_blob` flows (see `core/security.py`) to avoid lockout if hardware changes.
-
-If you want, I can add a simple `requirements.txt`, a CI workflow, or example integration tests for TLS loopback.
