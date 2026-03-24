@@ -118,14 +118,6 @@ APIs:
 - `core/secure_store.py` — read/write/encrypted streaming helpers
 - `core/security.py` — key derivation, AES-GCM helpers, token utilities
 
-## Running Tests
-
-Run the project test-suite with the provided runner:
-
-```bash
-python scripts/run_tests.py
-```
-
 ## Notes & Security
 
 - The system uses AES-GCM for on-disk and in-flight payload encryption, and issues short-lived tokens for remote execution.
