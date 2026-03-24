@@ -1,6 +1,7 @@
 import sys
 import time
 import logging
+import threading
 from typing import Dict, Any
 
 
@@ -13,12 +14,27 @@ def _sanitize(text: str) -> str:
 def _type_out(text: str, delay: float = 0.05, out_stream=None) -> None:
     if out_stream is None:
         out_stream = sys.stdout
+    write = getattr(out_stream, "write", None)
+    flush = getattr(out_stream, "flush", None)
+    if not callable(write) or not callable(flush):
+        out_stream = sys.stdout
+        write = out_stream.write
+        flush = out_stream.flush
+
     for ch in text:
-        out_stream.write(ch)
-        out_stream.flush()
-        time.sleep(delay)
-    out_stream.write("\n")
-    out_stream.flush()
+        try:
+            write(ch)
+            flush()
+            time.sleep(delay)
+        except Exception:
+            # If writing fails mid-typing, abort typing quietly
+            logging.exception("Typing stream failed; aborting typing")
+            break
+    try:
+        write("\n")
+        flush()
+    except Exception:
+        pass
 
 def execute(context: Dict[str, Any], *args) -> str:
     """Echo plugin that optionally types the message to the output stream.
@@ -49,6 +65,11 @@ def execute(context: Dict[str, Any], *args) -> str:
     message = " ".join(str(arg) for arg in args_list)
     message = _sanitize(message).strip()
 
+    # Bounds checks to avoid resource exhaustion
+    MAX_MSG = 10000
+    if len(message) > MAX_MSG:
+        raise ValueError("ERR_MESSAGE_TOO_LARGE")
+
     start_time = time.perf_counter()
     execution_latency = time.perf_counter() - start_time
 
@@ -65,9 +86,25 @@ def execute(context: Dict[str, Any], *args) -> str:
         return f"[SYSTEM_WARNING] High Latency Detected: {message}"
 
     if typing_mode:
-        delay = float(context.get("type_delay", 0.05))
+        try:
+            delay = float(context.get("type_delay", 0.05))
+        except Exception:
+            delay = 0.05
+        # clamp delay
+        delay = max(0.0, min(0.5, delay))
+
         out_stream = context.get("output_stream")
-        _type_out(message, delay=delay, out_stream=out_stream)
+
+        # Perform typing in a background thread to avoid blocking
+        try:
+            t = threading.Thread(target=_type_out, args=(message, delay, out_stream), daemon=True)
+            t.start()
+        except Exception:
+            logging.exception("Failed to start typing thread; falling back to immediate output")
+            try:
+                _type_out(message, delay=0.0, out_stream=out_stream)
+            except Exception:
+                pass
 
     return message
 

@@ -2,7 +2,7 @@ import os
 import importlib.util
 import inspect
 import logging
-from typing import Dict, Callable, Any
+from typing import Dict, Callable, Any, Optional
 
 class PluginLoader:
     """
@@ -22,11 +22,24 @@ class PluginLoader:
         Assertion Ratio Check: Validates that the plugin function 
         accepts exactly the required arguments (context, args).
         """
-        sig = inspect.signature(func)
-        params = list(sig.parameters.values())
-        
-        # Requirement: (context: Dict, *args)
-        return len(params) >= 1
+        try:
+            sig = inspect.signature(func)
+            params = list(sig.parameters.values())
+            if not params:
+                return False
+            # First parameter must be a positional parameter (context)
+            first = params[0]
+            kinds_allowed = (
+                inspect.Parameter.POSITIONAL_ONLY,
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                inspect.Parameter.KEYWORD_ONLY,
+            )
+            if first.kind not in kinds_allowed:
+                return False
+            # Remaining parameters may include var-positional for args
+            return True
+        except Exception:
+            return False
 
     def bootstrap(self):
         """
@@ -48,12 +61,29 @@ class PluginLoader:
                         # Find the 'execute' function in the plugin file
                         if hasattr(module, 'execute'):
                             cmd_func = getattr(module, 'execute')
-                            
-                            if self.validate_plugin_signature(cmd_func):
-                                self.commands[module_name] = cmd_func
-                                logging.info(f"Command '{module_name}' hot-loaded successfully.")
-                            else:
+
+                            if not self.validate_plugin_signature(cmd_func):
                                 logging.warning(f"Plugin '{module_name}' failed signature validation.")
+                                continue
+
+                            # Optional plugin metadata
+                            meta = getattr(module, 'PLUGIN_META', None)
+
+                            # Wrap the plugin call to enforce context type and catch exceptions
+                            def make_wrapper(name: str, fn: Callable, meta: Optional[dict] = None):
+                                def wrapper(context, *args):
+                                    try:
+                                        if not isinstance(context, dict):
+                                            raise RuntimeError('ERR_MISSING_HEALTH_CONTEXT')
+                                        # execute plugin
+                                        return fn(context, *args)
+                                    except Exception as e:
+                                        logging.exception("Plugin '%s' execution failed", name)
+                                        return f"Runtime Error in {name}: {e}"
+                                return wrapper
+
+                            self.commands[module_name] = make_wrapper(module_name, cmd_func, meta)
+                            logging.info(f"Command '{module_name}' hot-loaded successfully.")
                 except Exception as e:
                     logging.error(f"Kernel Panic during plugin load [{filename}]: {str(e)}")
 

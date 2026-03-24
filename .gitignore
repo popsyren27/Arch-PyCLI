@@ -1,6 +1,8 @@
 # Python cache
 __pycache__/
+.vault/
 *.pyc
 *.pyo
 *.pyd
 *.log
+debug.txt

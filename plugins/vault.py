@@ -1,64 +1,67 @@
-import json
-import os
 import logging
+from typing import Dict, Any
+from core import secure_store as ss
 from core.security import SEC_KERNEL
 
-DB_PATH = "vault.json"
 
-def execute(context, *args):
+def _clean_key(k: str) -> str:
+    # Restrict key names: alphanumeric, dashes and underscores only
+    safe = "".join(ch for ch in k if ch.isalnum() or ch in ('-', '_'))
+    return safe[:128]
+
+
+def execute(context: Dict[str, Any], *args) -> str:
     """
-    Secure Vault Plugin.
-    Demonstrates: Field-Level Encryption & Memory Wiping.
-    Usage: 
-      vault set [key] [value] - Encrypts and stores a value.
-      vault get [key]         - Decrypts and retrieves a value.
+    Secure Vault Plugin backed by `core.secure_store`.
+    Usage:
+      vault set [key] [value]
+      vault get [key]
     """
-    assert len(args) > 1, "ERR_USAGE: vault [set | get]"
-    
-    action = args[0].lower()
-    
-    # Initialize DB if missing
-    if not os.path.exists(DB_PATH):
-        with open(DB_PATH, 'w') as f:
-            json.dump({}, f)
+    if not args or len(args) < 1:
+        raise ValueError("ERR_USAGE: vault [set|get] ...")
+
+    action = str(args[0]).lower()
 
     if action == "set":
-        assert len(args) == 3, "ERR_USAGE: vault set [key] [value]"
-        key, raw_value = args[1], args[2]
-        
-        # 1. Encrypt the field BEFORE it reaches the storage layer
-        encrypted_data = SEC_KERNEL.encrypt_field(raw_value).hex()
-        
-        with open(DB_PATH, 'r+') as f:
-            db = json.load(f)
-            db[key] = encrypted_data
-            f.seek(0)
-            json.dump(db, f, indent=4)
-            f.truncate()
-        
-        # 2. Memory Scavenging: Overwrite the plaintext value in RAM
-        SEC_KERNEL._wipe_memory(raw_value)
-        return f"[SECURE] Field '{key}' encrypted and persisted to {DB_PATH}."
+        if len(args) != 3:
+            raise ValueError("ERR_USAGE: vault set [key] [value]")
+        key = _clean_key(str(args[1]))
+        raw_value = str(args[2])
+
+        if not key:
+            raise ValueError("ERR_INVALID_KEY")
+
+        try:
+            # secure_store will encrypt the bytes; write under the key name
+            ss.write_encrypted(key, raw_value.encode('utf-8'), overwrite=True)
+            try:
+                SEC_KERNEL._wipe_memory(raw_value)
+            except Exception:
+                pass
+            return f"[SECURE] Field '{key}' encrypted and persisted."
+        except Exception as e:
+            logging.exception("Failed to set vault field")
+            return f"ERR_VAULT_WRITE: {e}"
 
     if action == "get":
-        key = args[1]
-        with open(DB_PATH, 'r') as f:
-            db = json.load(f)
-            
-        if key not in db:
+        if len(args) != 2:
+            raise ValueError("ERR_USAGE: vault get [key]")
+        key = _clean_key(str(args[1]))
+        if not key:
+            raise ValueError("ERR_INVALID_KEY")
+        try:
+            blob = ss.read_encrypted(key)
+            value = blob.decode('utf-8')
+            # wipe copy after converting
+            try:
+                SEC_KERNEL._wipe_memory(value)
+            except Exception:
+                pass
+            return f"VAULT_DECRYPTED [{key}]: {value}"
+        except FileNotFoundError:
             return f"ERR_KEY_NOT_FOUND: {key}"
-        
-        # 3. Decrypt the specific field
-        encrypted_blob = bytes.fromhex(db[key])
-        decrypted_value = SEC_KERNEL.decrypt_field(encrypted_blob)
-        
-        # Logic-to-Assertion: Ensure decryption didn't return null
-        assert decrypted_value, "ERR_DECRYPTION_FAILURE"
-        
-        result = f"VAULT_DECRYPTED [{key}]: {decrypted_value}"
-        
-        # 4. Immediate wipe of the decrypted string after use
-        SEC_KERNEL._wipe_memory(decrypted_value)
-        return result
+        except Exception as e:
+            logging.exception("Failed to read vault field")
+            return f"ERR_VAULT_READ: {e}"
 
     return "ERR_UNKNOWN_VAULT_ACTION"

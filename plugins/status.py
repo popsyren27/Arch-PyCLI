@@ -28,32 +28,41 @@ def execute(context: Dict[str, Any], *args) -> str:
     # Input validation
     if not context or "health" not in context:
         raise ValueError("ERR_MISSING_HEALTH_CONTEXT")
-    
+
     subcommand = args[0].lower() if args else "full"
-    
+
     # Validate subcommand safely
     if not _validate_subcommand(subcommand):
         return f"ERR_INVALID_SUBCOMMAND: '{subcommand}'. Use: health|memory|cpu|full"
-    
-    health = context["health"]
+
+    health = context.get("health", {})
     
     # Generate status output
     output = []
     output.append(f"Node ID: {NETWORK_NODE.node_id}")
-    output.append(f"Status: {health['status']}")
-    
+    output.append(f"Status: {health.get('status', 'UNKNOWN')}")
+
     if subcommand in ["memory", "full"]:
-        output.append(f"Memory Pressure: {health['memory_pressure']:.1f}%")
-    
+        mem = float(health.get('memory_pressure', 0.0))
+        output.append(f"Memory Pressure: {mem:.1f}%")
+
     if subcommand in ["cpu", "full"]:
-        output.append(f"CPU Utilization: {health['cpu_utilization']:.1f}%")
-    
+        cpu = float(health.get('cpu_utilization', 0.0))
+        output.append(f"CPU Utilization: {cpu:.1f}%")
+
     if subcommand in ["health", "full"]:
-        output.append(f"Internal Latency: {health['internal_latency']:.6f}s")
-        output.append(f"Timestamp: {health['timestamp']:.2f}")
+        lat = float(health.get('internal_latency', 0.0))
+        ts = float(health.get('timestamp', 0.0))
+        output.append(f"Internal Latency: {lat:.6f}s")
+        output.append(f"Timestamp: {ts:.2f}")
     
     if subcommand == "full":
-        output.append(f"HAL CPU Cores: {HAL.CPU_CORES}")
-        output.append(f"HAL Total RAM: {HAL.TOTAL_RAM / (1024**3):.2f} GB")
+        try:
+            cores = int(getattr(HAL, 'CPU_CORES', 0))
+            total_ram = float(getattr(HAL, 'TOTAL_RAM', 0))
+            output.append(f"HAL CPU Cores: {cores}")
+            output.append(f"HAL Total RAM: {total_ram / (1024**3):.2f} GB")
+        except Exception:
+            output.append("HAL: data unavailable")
     
     return "\n".join(output)
