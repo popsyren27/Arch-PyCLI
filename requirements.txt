@@ -1,5 +1,15 @@
-# Core runtime dependencies for Arch-PyCLI
+# Arch-PyCLI Requirements
 # Install with: pip install -r requirements.txt
 
+# Core dependencies (required)
 cryptography>=3.4
 psutil>=5.8.0
+
+# Optional dependencies
+# Uncomment if you want OS keyring integration for master key storage
+# keyring>=19.0.0
+
+# Development dependencies (optional)
+# Uncomment for development/testing
+# pytest>=7.0.0
+# pytest-cov>=3.0.0

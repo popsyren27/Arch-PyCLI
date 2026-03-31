@@ -1,135 +1,219 @@
+"""
+File Manager Module for Arch-PyCLI.
+
+This module provides a compatibility wrapper around secure_store for file operations.
+
+Note:
+    This module is maintained for backwards compatibility.
+    New code should use core.secure_store directly.
+
+Features:
+- File operations (read, write, list, delete, rename)
+- Path validation
+- Thread-safe operations
+- Comprehensive error handling
+
+Author: Arch-PyCLI Team
+Version: 0.1.0
+"""
+
 from __future__ import annotations
 
+import logging
 import os
-import shutil
-import tempfile
-from pathlib import Path
+import sys
 import threading
-import contextlib
-import io
-import tempfile
-from typing import Callable, Dict, List, Optional, Union, Iterable
+from pathlib import Path
+from typing import Any, Callable, Dict, Iterable, List, Optional, Union
 
-import logging
-from core import secure_store as ss
-import logging
+# Import secure store
+try:
+    from core import secure_store as _ss
+    _SS_AVAILABLE: bool = True
+except ImportError:
+    _ss = None
+    _SS_AVAILABLE: bool = False
 
+
+# =============================================================================
+# CUSTOM EXCEPTIONS
+# =============================================================================
 
 class FileManagerError(Exception):
+    """Base exception for file manager errors."""
     pass
 
 
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
 # Repository root
-_REPO_ROOT = Path(__file__).resolve().parents[1]
-# Storage root for files managed by the file manager (encrypted at rest)
-_STORAGE_ROOT = _REPO_ROOT / ".vault"
-_STORAGE_ROOT.mkdir(parents=True, exist_ok=True)
+_REPO_ROOT: Path = Path(__file__).resolve().parents[1]
+_STORAGE_ROOT: Path = _REPO_ROOT / ".vault"
 
-# in-process locks to avoid concurrent writes on same path
+# Thread locks for file operations
 _FILE_LOCKS: Dict[str, threading.Lock] = {}
+_LOCKS_LOCK: threading.Lock = threading.Lock()
 
-_logger = logging.getLogger("file_manager")
+
+# =============================================================================
+# SETUP LOGGING
+# =============================================================================
+
+_logger: logging.Logger = logging.getLogger("FILE_MANAGER")
 if not _logger.handlers:
-    h = logging.FileHandler("debug.txt")
-    h.setLevel(logging.INFO)
-    _logger.addHandler(h)
-    _logger.propagate = False
+    _handler: logging.Handler = logging.StreamHandler(sys.stdout)
+    _handler.setLevel(logging.DEBUG)
+    _formatter: logging.Formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - [%(levelname)s] - %(message)s'
+    )
+    _handler.setFormatter(_formatter)
+    _logger.addHandler(_handler)
+    _logger.setLevel(logging.DEBUG)
+
+_logger.info("[FILE_MANAGER] File manager module initialized")
 
 
-def _ensure_within_storage(p: Path) -> Path:
-    p = p.resolve()
+# =============================================================================
+# LOCK MANAGEMENT
+# =============================================================================
+
+def _get_lock(path: str) -> threading.Lock:
+    """
+    Get or create a lock for the given path.
+    
+    Args:
+        path: File path
+    
+    Returns:
+        threading.Lock for the path
+    """
+    with _LOCKS_LOCK:
+        if path not in _FILE_LOCKS:
+            _FILE_LOCKS[path] = threading.Lock()
+        return _FILE_LOCKS[path]
+
+
+# =============================================================================
+# PATH VALIDATION
+# =============================================================================
+
+def _validate_path(path: Union[str, Path]) -> Path:
+    """
+    Validate a path for security.
+    
+    Args:
+        path: Path to validate
+    
+    Returns:
+        Validated Path object
+    
+    Raises:
+        FileManagerError: If path is invalid
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
+    p: Path = Path(path)
+    
+    if p.is_absolute():
+        raise FileManagerError("Absolute paths not allowed")
+    
     try:
-        p.relative_to(_STORAGE_ROOT)
-    except Exception:
-        raise FileManagerError(f"Path outside storage root: {p}")
-    return p
+        resolved: Path = (_STORAGE_ROOT / p).resolve()
+        resolved.relative_to(_STORAGE_ROOT)
+        return resolved
+    except ValueError:
+        raise FileManagerError(f"Path outside storage: {path}")
 
 
-def list_dir(path: Union[str, Path] = ".") -> List[Dict[str, Union[str, bool, int]]]:
-    # delegate to secure store listing
+# =============================================================================
+# FILE OPERATIONS
+# =============================================================================
+
+def list_dir(path: Union[str, Path] = ".") -> List[Dict[str, Any]]:
+    """
+    List directory contents.
+    
+    Args:
+        path: Directory path (default: root)
+    
+    Returns:
+        List of entry dictionaries
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        return ss.list_dir(path)
+        return _ss.list_dir(path)
     except Exception as e:
+        _logger.exception("[FILE_MANAGER] list_dir failed")
         raise FileManagerError(str(e))
 
 
-def read_stream(path: Union[str, Path]):
-    """Yield decrypted chunks (bytes) for the stored file at `path`.
-
-    This is a thin wrapper around `secure_store.stream_decrypt` which yields
-    plaintext chunks as produced by the store.
+def read_file(
+    path: Union[str, Path],
+    mode: str = "r",
+    encoding: Optional[str] = "utf-8"
+) -> Union[str, bytes]:
     """
+    Read a file from secure storage.
+    
+    Args:
+        path: File path
+        mode: Read mode ('r' for text, 'b' for binary)
+        encoding: Text encoding (default: utf-8)
+    
+    Returns:
+        File contents as string or bytes
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        for part in ss.stream_decrypt(path):
+        data: bytes = _ss.read_encrypted(path)
+        
+        if "b" in mode:
+            return data
+        
+        return data.decode(encoding or "utf-8")
+        
+    except FileNotFoundError:
+        raise FileManagerError(f"File not found: {path}")
+    except Exception as e:
+        _logger.exception("[FILE_MANAGER] read_file failed")
+        raise FileManagerError(str(e))
+
+
+def read_stream(path: Union[str, Path]) -> Iterable[bytes]:
+    """
+    Read file as a stream of decrypted chunks.
+    
+    Args:
+        path: File path
+    
+    Yields:
+        Decrypted bytes chunks
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
+    try:
+        for part in _ss.stream_decrypt(path):
             yield part
     except Exception as e:
+        _logger.exception("[FILE_MANAGER] read_stream failed")
         raise FileManagerError(str(e))
-
-
-def read_file(path: Union[str, Path], mode: str = "r", encoding: Optional[str] = "utf-8") -> Union[str, bytes]:
-    try:
-        data = ss.read_encrypted(path)
-    except Exception as e:
-        raise FileManagerError(str(e))
-    if "w" in mode and isinstance(path, (str, Path)):
-        # if caller requested write mode, provide bytes for them to write
-        return data
-    if "b" in mode:
-        return data
-    try:
-        return data.decode(encoding or "utf-8")
-    except Exception as e:
-        raise FileManagerError(f"Decoding error: {e}")
-
-
-@contextlib.contextmanager
-def write_stream(path: Union[str, Path], overwrite: bool = True):
-    """Context manager that yields a binary file-like object to write into.
-
-    On exit the temporary file will be encrypted into the secure store at
-    `path`. This avoids building large files in memory.
-    """
-    p = Path(path)
-    key = str(p.resolve())
-    lock = _FILE_LOCKS.setdefault(key, threading.Lock())
-    tmp = None
-    try:
-        lock.acquire()
-        tmp_f = tempfile.NamedTemporaryFile(delete=False)
-        tmp = Path(tmp_f.name)
-        _logger.info("Opened temp file %s for write_stream -> %s", tmp, path)
-        try:
-            yield tmp_f
-        finally:
-            try:
-                tmp_f.flush()
-                tmp_f.close()
-            except Exception:
-                pass
-        # stream into secure store
-        ss.write_encrypted_file(path, tmp, overwrite=overwrite)
-    except Exception as e:
-        _logger.exception("write_stream failed: %s", e)
-        raise FileManagerError(str(e))
-    finally:
-        try:
-            if tmp and tmp.exists():
-                tmp.unlink()
-        except Exception:
-            pass
-        try:
-            lock.release()
-        except Exception:
-            pass
-
-
-def write_from_iterable(path: Union[str, Path], iterable: Iterable[bytes], overwrite: bool = True) -> None:
-    """Write encrypted file from an iterable of bytes (or strings)."""
-    with write_stream(path, overwrite=overwrite) as fh:
-        for chunk in iterable:
-            if isinstance(chunk, str):
-                chunk = chunk.encode()
-            fh.write(chunk)
 
 
 def write_file(
@@ -137,113 +221,221 @@ def write_file(
     content: Union[str, bytes],
     overwrite: bool = True,
     create_parents: bool = True,
-    encoding: Optional[str] = "utf-8",
+    encoding: Optional[str] = "utf-8"
 ) -> None:
-    """Write `content` to `path` in encrypted storage.
-
-    If `content` is a `Path` or string pointing to an existing local file,
-    the implementation will stream the source file into the secure store to
-    avoid loading large files into memory.
     """
-    logger = logging.getLogger("file_manager")
+    Write content to a file in secure storage.
+    
+    Args:
+        path: File path
+        content: Content to write (string or bytes)
+        overwrite: Overwrite if exists (default: True)
+        create_parents: Create parent directories (default: True)
+        encoding: Text encoding (default: utf-8)
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        # If content is a path to an existing file, stream from disk
-        if isinstance(content, (str, Path)) and Path(content).exists():
-            src = Path(content)
-            ss.write_encrypted_file(path, src, overwrite=overwrite)
-            return
-
-        # If content is a file-like object, stream into temp then encrypt
-        if hasattr(content, "read"):
-            with tempfile.NamedTemporaryFile(delete=False) as tmp:
-                try:
-                    # copy in chunks
-                    while True:
-                        chunk = content.read(65536)
-                        if not chunk:
-                            break
-                        if isinstance(chunk, str):
-                            chunk = chunk.encode(encoding or "utf-8")
-                        tmp.write(chunk)
-                    tmp.flush()
-                finally:
-                    tmp_path = Path(tmp.name)
-            try:
-                ss.write_encrypted_file(path, tmp_path, overwrite=overwrite)
-            finally:
-                try:
-                    tmp_path.unlink()
-                except Exception:
-                    pass
-            return
-
-        # If content is an iterable of chunks (but not a string/bytes), write from iterable
-        if isinstance(content, Iterable) and not isinstance(content, (str, bytes)):
-            write_from_iterable(path, content, overwrite=overwrite)
-            return
-
         if isinstance(content, str):
-            data = content.encode(encoding or "utf-8")
+            data: bytes = content.encode(encoding or "utf-8")
         else:
             data = content
-
-        ss.write_encrypted(path, data, overwrite=overwrite)
+        
+        _ss.write_encrypted(path, data, overwrite=overwrite)
+        
     except Exception as e:
-        logger.exception("write_file failed: %s", e)
+        _logger.exception("[FILE_MANAGER] write_file failed")
         raise FileManagerError(str(e))
 
 
-def create_file(path: Union[str, Path], content: Union[str, bytes] = "", exist_ok: bool = False) -> None:
+def create_file(
+    path: Union[str, Path],
+    content: Union[str, bytes] = "",
+    exist_ok: bool = False
+) -> None:
+    """
+    Create a new file.
+    
+    Args:
+        path: File path
+        content: Initial content (default: empty)
+        exist_ok: Don't error if exists (default: False)
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        if ss.exists(path) and not exist_ok:
+        if _ss.exists(path) and not exist_ok:
             raise FileManagerError(f"File already exists: {path}")
-        # ensure parent exists in storage by creating a zero-byte placeholder
-        if isinstance(path, (str, Path)):
-            p = Path(path)
-            parent = p.parent
-            if str(parent) not in (".", "") and not ss.exists(parent):
-                # create an empty directory marker
-                (ss._STORAGE_ROOT / parent).mkdir(parents=True, exist_ok=True)
+        
         write_file(path, content, overwrite=True, create_parents=True)
+        
     except Exception as e:
+        _logger.exception("[FILE_MANAGER] create_file failed")
         raise FileManagerError(str(e))
 
 
 def delete_file(path: Union[str, Path], recursive: bool = False) -> None:
+    """
+    Delete a file.
+    
+    Args:
+        path: File path
+        recursive: Delete directories recursively (default: False)
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        ss.delete(path, recursive=recursive)
+        _ss.delete(path, recursive=recursive)
     except Exception as e:
+        _logger.exception("[FILE_MANAGER] delete_file failed")
         raise FileManagerError(str(e))
 
 
-def rename(src: Union[str, Path], dst: Union[str, Path], overwrite: bool = False) -> None:
+def rename(
+    src: Union[str, Path],
+    dst: Union[str, Path],
+    overwrite: bool = False
+) -> None:
+    """
+    Rename a file.
+    
+    Args:
+        src: Source path
+        dst: Destination path
+        overwrite: Overwrite destination if exists (default: False)
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
     try:
-        ss.rename(src, dst, overwrite=overwrite)
+        _ss.rename(src, dst, overwrite=overwrite)
     except Exception as e:
+        _logger.exception("[FILE_MANAGER] rename failed")
         raise FileManagerError(str(e))
 
 
-def modify_file(path: Union[str, Path], transform: Callable[[str], str], encoding: Optional[str] = "utf-8") -> None:
-    text = read_file(path, mode="r", encoding=encoding)
-    new_text = transform(text)
-    write_file(path, new_text, overwrite=True, create_parents=False, encoding=encoding)
+def modify_file(
+    path: Union[str, Path],
+    transform: Callable[[str], str],
+    encoding: Optional[str] = "utf-8"
+) -> None:
+    """
+    Modify a file by applying a transform function.
+    
+    Args:
+        path: File path
+        transform: Function that takes old content and returns new content
+        encoding: Text encoding (default: utf-8)
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
+    try:
+        content: str = read_file(path, mode="r", encoding=encoding)
+        new_content: str = transform(content)
+        write_file(path, new_content, overwrite=True, encoding=encoding)
+    except Exception as e:
+        _logger.exception("[FILE_MANAGER] modify_file failed")
+        raise FileManagerError(str(e))
 
 
 def exists(path: Union[str, Path]) -> bool:
+    """
+    Check if a path exists.
+    
+    Args:
+        path: Path to check
+    
+    Returns:
+        True if exists, False otherwise
+    """
+    if not _SS_AVAILABLE:
+        return False
+    
     try:
-        return ss.exists(path)
+        return _ss.exists(path)
     except Exception:
         return False
 
+
+def get_info(path: Union[str, Path]) -> Dict[str, Any]:
+    """
+    Get information about a file.
+    
+    Args:
+        path: File path
+    
+    Returns:
+        Dictionary with file information
+    
+    Raises:
+        FileManagerError: If operation fails
+    """
+    if not _SS_AVAILABLE:
+        raise FileManagerError("Secure store not available")
+    
+    try:
+        return _ss.get_info(path)
+    except Exception as e:
+        _logger.exception("[FILE_MANAGER] get_info failed")
+        raise FileManagerError(str(e))
+
+
+def get_stats() -> Dict[str, Any]:
+    """
+    Get storage statistics.
+    
+    Returns:
+        Dictionary with storage statistics
+    """
+    if not _SS_AVAILABLE:
+        return {
+            "available": False,
+            "error": "Secure store not available"
+        }
+    
+    try:
+        return _ss.get_storage_stats()
+    except Exception as e:
+        return {
+            "available": True,
+            "error": str(e)
+        }
+
+
+# =============================================================================
+# EXPORTS
+# =============================================================================
 
 __all__ = [
     "FileManagerError",
     "list_dir",
     "read_file",
+    "read_stream",
     "write_file",
     "create_file",
     "delete_file",
     "rename",
     "modify_file",
     "exists",
+    "get_info",
+    "get_stats",
 ]
