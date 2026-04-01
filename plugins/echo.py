@@ -292,6 +292,8 @@ def execute(context: Dict[str, Any], *args: Any) -> str:
     # TYPING MODE EXECUTION
     # =====================================================================
     
+    typing_thread: Optional[threading.Thread] = None
+    
     if typing_mode:
         # Get typing delay from context
         try:
@@ -307,7 +309,7 @@ def execute(context: Dict[str, Any], *args: Any) -> str:
         
         # Run typing in background thread to avoid blocking
         try:
-            typing_thread: threading.Thread = threading.Thread(
+            typing_thread = threading.Thread(
                 target=_type_out,
                 args=(message, delay, out_stream),
                 daemon=True,
@@ -331,6 +333,14 @@ def execute(context: Dict[str, Any], *args: Any) -> str:
     # =====================================================================
     # RETURN RESULT
     # =====================================================================
+    
+    # Wait for typing thread to complete before returning
+    # This ensures the typing animation finishes before the return value is printed
+    if typing_thread is not None:
+        try:
+            typing_thread.join()
+        except Exception:
+            pass
     
     _logger.debug("[ECHO_PLUGIN] Returning message: %s", message[:50])
     return message
